@@ -1,0 +1,27 @@
+doc/ceph-volume/lvm/batch.rst
+  09e1a590106002e0 189-190
+src/ceph-volume/ceph_volume/devices/lvm/batch.py
+  09e1a590106002e0 453,466,497,763
+src/ceph-volume/ceph_volume/tests/devices/lvm/test_batch.py
+  09e1a590106002e0 454,463,478,517,526,540-541
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.8",
+  "base_commit_sha": "468cc0b0faab5dd52fa1250e5598742b5f21d38a",
+  "prompts": {
+    "09e1a590106002e0": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_26ee769ddffeEykoZAE0kj29PP",
+        "model": "openai/gpt-5.4"
+      },
+      "human_author": "Ondřej Kukla",
+      "messages": [],
+      "total_additions": 13,
+      "total_deletions": 6,
+      "accepted_lines": 13,
+      "overriden_lines": 0
+    }
+  }
+}
