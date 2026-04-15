@@ -1,0 +1,53 @@
+src/ceph-volume/ceph_volume/devices/lvm/batch.py
+  09e1a590106002e0 17-18,47,54-59,73,76,78,453,457-458,467,471-472,483-484,495-502,505,507-512,583-610,634-635
+doc/ceph-volume/lvm/batch.rst
+  09e1a590106002e0 182-186
+src/ceph-volume/ceph_volume/tests/devices/lvm/test_batch.py
+  09e1a590106002e0 482-488,512,514-515
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.2.8",
+  "base_commit_sha": "5909dfd9aacca6390a7fc927a2b23fc7edafae79",
+  "prompts": {
+    "09e1a590106002e0": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_26ee769ddffeEykoZAE0kj29PP",
+        "model": "openai/gpt-5.4"
+      },
+      "human_author": "Ondřej Kukla",
+      "messages": [],
+      "total_additions": 84,
+      "total_deletions": 53,
+      "accepted_lines": 81,
+      "overriden_lines": 0
+    },
+    "58273d86b133c9e0": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_26edf49acffeiU6MMZcDEYXQ6O",
+        "model": "openai/gpt-5.4"
+      },
+      "human_author": "Ondřej Kukla",
+      "messages": [],
+      "total_additions": 0,
+      "total_deletions": 0,
+      "accepted_lines": 40,
+      "overriden_lines": 0
+    },
+    "d4e4e108b62b5eb0": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_26ecbb922ffeNSdbNwmcmKdUhf",
+        "model": "openai/gpt-5.4"
+      },
+      "human_author": "Ondřej Kukla",
+      "messages": [],
+      "total_additions": 0,
+      "total_deletions": 0,
+      "accepted_lines": 1,
+      "overriden_lines": 0
+    }
+  }
+}
