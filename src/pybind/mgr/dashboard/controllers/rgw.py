@@ -14,7 +14,8 @@ from ..rest_client import RequestException
 from ..security import Permission, Scope
 from ..services.auth import AuthManager, JwtManager
 from ..services.ceph_service import CephService
-from ..services.rgw_client import NoRgwDaemonsException, RgwClient, RgwMultisite
+from ..services.rgw_client import _is_adm_hostname, NoRgwDaemonsException, \
+    RgwClient, RgwMultisite
 from ..tools import json_str_to_object, str_to_bool
 from . import APIDoc, APIRouter, BaseController, CreatePermission, \
     CRUDCollectionMethod, CRUDEndpoint, Endpoint, EndpointDoc, ReadPermission, \
@@ -134,6 +135,8 @@ class RgwDaemon(RESTController):
         for hostname, server in CephService.get_service_map('rgw').items():
             for service in server['services']:
                 metadata = service['metadata']
+                if not _is_adm_hostname(metadata.get('hostname', '')):
+                    continue
 
                 frontend_config = metadata['frontend_config#0']
                 port_match = re.search(r"port=(\d+)", frontend_config)

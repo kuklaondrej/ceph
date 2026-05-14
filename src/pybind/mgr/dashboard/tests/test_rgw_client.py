@@ -7,7 +7,7 @@ from unittest.mock import Mock, patch
 from .. import mgr
 from ..exceptions import DashboardException
 from ..services.rgw_client import NoCredentialsException, \
-    NoRgwDaemonsException, RgwClient, _parse_frontend_config
+    NoRgwDaemonsException, RgwClient, _get_daemons, _parse_frontend_config
 from ..settings import Settings
 from ..tests import CLICommandTestMixin, RgwStub
 
@@ -181,6 +181,57 @@ class RgwClientTest(TestCase, CLICommandTestMixin):
         with self.assertRaises(NoRgwDaemonsException) as cm:
             RgwClient.admin_instance()
         self.assertIn('No RGW service is running.', str(cm.exception))
+
+    def test_get_daemons_filters_non_adm_hostnames(self):
+        mgr.get = Mock(return_value={'services': {'rgw': {'daemons': {
+            '5297': {
+                'addr': '192.168.178.3:49774/1534999298',
+                'metadata': {
+                    'frontend_config#0': 'beast port=8000',
+                    'id': 'daemon1',
+                    'realm_name': 'realm1',
+                    'zonegroup_name': 'zonegroup1',
+                    'zonegroup_id': 'zonegroup1-id',
+                    'zone_name': 'zone1',
+                    'hostname': 'rgw-adm-daemon1.server.lan'
+                }
+            },
+            '5398': {
+                'addr': '192.168.178.4:49774/1534999298',
+                'metadata': {
+                    'frontend_config#0': 'beast port=8000',
+                    'id': 'daemon2',
+                    'realm_name': 'realm2',
+                    'zonegroup_name': 'zonegroup2',
+                    'zonegroup_id': 'zonegroup2-id',
+                    'zone_name': 'zone2',
+                    'hostname': 'rgw-daemon2.server.lan'
+                }
+            }
+        }}}})
+
+        daemons = _get_daemons()
+
+        self.assertEqual(['daemon1'], list(daemons.keys()))
+
+    def test_get_daemons_raises_when_no_adm_hostnames(self):
+        mgr.get = Mock(return_value={'services': {'rgw': {'daemons': {
+            '5297': {
+                'addr': '192.168.178.3:49774/1534999298',
+                'metadata': {
+                    'frontend_config#0': 'beast port=8000',
+                    'id': 'daemon1',
+                    'realm_name': 'realm1',
+                    'zonegroup_name': 'zonegroup1',
+                    'zonegroup_id': 'zonegroup1-id',
+                    'zone_name': 'zone1',
+                    'hostname': 'rgw-daemon1.server.lan'
+                }
+            }
+        }}}})
+
+        with self.assertRaises(NoRgwDaemonsException):
+            _get_daemons()
 
     @patch.object(RgwClient, '_get_daemon_zone_info')
     def test_get_placement_targets_from_zone(self, zone_info):

@@ -94,6 +94,7 @@ class RgwDaemonControllerTestCase(ControllerTestCase):
                 'realm_name': 'realm1',
                 'zonegroup_name': 'zg1',
                 'zone_name': 'zone1',
+                'hostname': 'rgw-adm-daemon1.server.lan',
                 'frontend_config#0': 'beast port=80'
             },
             {
@@ -102,6 +103,7 @@ class RgwDaemonControllerTestCase(ControllerTestCase):
                 'realm_name': 'realm2',
                 'zonegroup_name': 'zg2',
                 'zone_name': 'zone2',
+                'hostname': 'rgw-adm-daemon2.server.lan',
                 'frontend_config#0': 'beast ssl_port=443 ssl_certificate=config:/config'
             },
             {
@@ -110,6 +112,7 @@ class RgwDaemonControllerTestCase(ControllerTestCase):
                 'realm_name': 'realm3',
                 'zonegroup_name': 'zg3',
                 'zone_name': 'zone3',
+                'hostname': 'rgw-adm-daemon3.server.lan',
                 'frontend_config#0':
                     'beast ssl_endpoint=0.0.0.0:8080 ssl_certificate=config:/config'
             },
@@ -119,6 +122,7 @@ class RgwDaemonControllerTestCase(ControllerTestCase):
                 'realm_name': 'realm4',
                 'zonegroup_name': 'zg4',
                 'zone_name': 'zone4',
+                'hostname': 'rgw-adm-daemon4.server.lan',
                 'frontend_config#0': 'beast ssl_certificate=config:/config'
             },
             {
@@ -127,6 +131,7 @@ class RgwDaemonControllerTestCase(ControllerTestCase):
                 'realm_name': 'realm5',
                 'zonegroup_name': 'zg5',
                 'zone_name': 'zone5',
+                'hostname': 'rgw-adm-daemon5.server.lan',
                 'frontend_config#0':
                     'beast endpoint=0.0.0.0:8445 ssl_certificate=config:/config'
             }, ]
@@ -187,12 +192,63 @@ class RgwDaemonControllerTestCase(ControllerTestCase):
             'port': 8445,
         }])
 
+    @patch('dashboard.services.rgw_client.RgwClient._get_user_id', Mock(
+        return_value='dummy_admin'))
+    @patch('dashboard.services.ceph_service.CephService.send_command')
+    def test_list_filters_non_adm_hostnames(self, send_command):
+        send_command.return_value = ''
+        RgwStub.get_daemons()
+        RgwStub.get_settings()
+        mgr.list_servers.return_value = [{
+            'hostname': 'host1',
+            'services': [
+                {'id': '4832', 'type': 'rgw'},
+                {'id': '5356', 'type': 'rgw'},
+            ]
+        }]
+        mgr.get_metadata.side_effect = [
+            {
+                'ceph_version': 'ceph version master (dev)',
+                'id': 'daemon1',
+                'realm_name': 'realm1',
+                'zonegroup_name': 'zg1',
+                'zonegroup_id': 'zg1-id',
+                'zone_name': 'zone1',
+                'hostname': 'rgw-adm-daemon1.server.lan',
+                'frontend_config#0': 'beast port=80'
+            },
+            {
+                'ceph_version': 'ceph version master (dev)',
+                'id': 'daemon2',
+                'realm_name': 'realm2',
+                'zonegroup_name': 'zg2',
+                'zonegroup_id': 'zg2-id',
+                'zone_name': 'zone2',
+                'hostname': 'rgw-daemon2.server.lan',
+                'frontend_config#0': 'beast port=81'
+            }
+        ]
+
+        self._get('/test/api/rgw/daemon')
+
+        self.assertStatus(200)
+        self.assertJsonBody([{
+            'id': 'daemon1',
+            'service_map_id': '4832',
+            'version': 'ceph version master (dev)',
+            'server_hostname': 'host1',
+            'realm_name': 'realm1',
+            'zonegroup_name': 'zg1',
+            'zone_name': 'zone1',
+            'default': True,
+            'port': 80
+        }])
+
     def test_list_empty(self):
         RgwStub.get_mgr_no_services()
         self._get('/test/api/rgw/daemon')
         self.assertStatus(200)
         self.assertJsonBody([])
-
 
 class RgwUserControllerTestCase(ControllerTestCase):
     @classmethod

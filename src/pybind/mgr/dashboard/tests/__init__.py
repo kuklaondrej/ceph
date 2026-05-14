@@ -303,7 +303,7 @@ class RgwStub(Stub):
                     'realm_name': 'realm1',
                     'zonegroup_name': 'zonegroup1',
                     'zone_name': 'zone1',
-                    'hostname': 'daemon1.server.lan'
+                    'hostname': 'rgw-adm-daemon1.server.lan'
                 }
             },
             '5398': {
@@ -314,7 +314,7 @@ class RgwStub(Stub):
                     'realm_name': 'realm2',
                     'zonegroup_name': 'zonegroup2',
                     'zone_name': 'zone2',
-                    'hostname': 'daemon2.server.lan'
+                    'hostname': 'rgw-adm-daemon2.server.lan'
                 }
             }
         }}}})

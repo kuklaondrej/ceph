@@ -28,6 +28,8 @@ except ImportError:
 
 logger = logging.getLogger('rgw_client')
 
+_RGW_ADMIN_HOSTNAME_PATTERN = '-adm-'
+
 
 class NoRgwDaemonsException(Exception):
     def __init__(self):
@@ -57,6 +59,10 @@ class RgwDaemon:
     zone_name: str
 
 
+def _is_adm_hostname(hostname: str) -> bool:
+    return _RGW_ADMIN_HOSTNAME_PATTERN in hostname
+
+
 def _get_daemons() -> Dict[str, RgwDaemon]:
     """
     Retrieve RGW daemon info from MGR.
@@ -69,6 +75,9 @@ def _get_daemons() -> Dict[str, RgwDaemon]:
     daemon_map = service_map['services']['rgw']['daemons']
     for key in daemon_map.keys():
         if dict_contains_path(daemon_map[key], ['metadata', 'frontend_config#0']):
+            hostname = daemon_map[key]['metadata'].get('hostname', '')
+            if not _is_adm_hostname(hostname):
+                continue
             daemon = _determine_rgw_addr(daemon_map[key])
             daemon.name = daemon_map[key]['metadata']['id']
             daemon.realm_name = daemon_map[key]['metadata']['realm_name']
