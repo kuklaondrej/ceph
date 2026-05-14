@@ -1,0 +1,29 @@
+src/pybind/mgr/dashboard/services/rgw_client.py
+  s_46ac062104cc4c::t_6e9ed5744e25cd 31-32,62-65,78-80
+src/pybind/mgr/dashboard/controllers/rgw.py
+  s_46ac062104cc4c::t_6e9ed5744e25cd 138-139
+  s_46ac062104cc4c::t_35523638363ea6 17-18
+src/pybind/mgr/dashboard/tests/test_rgw_client.py
+  s_46ac062104cc4c::t_6e9ed5744e25cd 185-234
+  s_46ac062104cc4c::t_1ffb31c1a7a7bc 10
+src/pybind/mgr/dashboard/tests/__init__.py
+  s_46ac062104cc4c::t_6e9ed5744e25cd 306,317
+src/pybind/mgr/dashboard/tests/test_rgw.py
+  s_46ac062104cc4c::t_6e9ed5744e25cd 97,106,115,125,134,195-246
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.8",
+  "base_commit_sha": "630db7eaa7441b708c170d6d6c772f403e93c3b6",
+  "prompts": {},
+  "sessions": {
+    "s_46ac062104cc4c": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_1d9a9d68bffebxFuBtJGRYhBC6",
+        "model": "gpt-5.5"
+      },
+      "human_author": "Ondřej Kukla <ondrej.kukla@cdn77.com>"
+    }
+  }
+}
