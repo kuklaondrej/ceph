@@ -1,0 +1,19 @@
+doc/rados/troubleshooting/cpu-profiling.rst
+  s_a327d8eee9a701::t_cdf67619bb78b1 5-10,12-13,16-17,19-21,23,25,28-29,31-32,34,36,39-40,42-43,45,47,49-51,53,55,57-60,62-64
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.2",
+  "base_commit_sha": "ffae2c2cf9cc238c4ef07094e224fb4a48afb180",
+  "prompts": {},
+  "sessions": {
+    "s_a327d8eee9a701": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "13915cfd-971e-4347-aa13-c4afe410899f",
+        "model": "claude-fable-5-1"
+      },
+      "human_author": "Ondřej Kukla <ondrej.kukla@cdn77.com>"
+    }
+  }
+}
