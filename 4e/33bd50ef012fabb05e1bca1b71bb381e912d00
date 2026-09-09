@@ -1,0 +1,25 @@
+doc/rados/operations/add-or-rm-osds.rst
+  s_a327d8eee9a701::t_b099ff30dc1051 184-186
+doc/rados/operations/bluestore-migration.rst
+  s_a327d8eee9a701::t_619a72f5a3fc2c 7-9,11-15,17,19,21,23
+doc/rados/operations/erasure-code.rst
+  s_a327d8eee9a701::t_7195baaa0fd6ca 190-191
+doc/rados/operations/placement-groups.rst
+  s_a327d8eee9a701::t_a3c47ba510e579 558-559
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.2",
+  "base_commit_sha": "4e33bd50ef012fabb05e1bca1b71bb381e912d00",
+  "prompts": {},
+  "sessions": {
+    "s_a327d8eee9a701": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "13915cfd-971e-4347-aa13-c4afe410899f",
+        "model": "claude-fable-5-1"
+      },
+      "human_author": "Ondřej Kukla <ondrej.kukla@cdn77.com>"
+    }
+  }
+}
