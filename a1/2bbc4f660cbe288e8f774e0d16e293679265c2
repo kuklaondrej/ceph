@@ -1,0 +1,19 @@
+doc/install/install-vm-cloud.rst
+  s_a327d8eee9a701::t_04d621c543fc33 6-9,31-32,34-36,38,40,42-43,45,47,49-50,52,54,57-58,60-62
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.2",
+  "base_commit_sha": "a12bbc4f660cbe288e8f774e0d16e293679265c2",
+  "prompts": {},
+  "sessions": {
+    "s_a327d8eee9a701": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "13915cfd-971e-4347-aa13-c4afe410899f",
+        "model": "claude-fable-5-1"
+      },
+      "human_author": "Ondřej Kukla <ondrej.kukla@cdn77.com>"
+    }
+  }
+}
