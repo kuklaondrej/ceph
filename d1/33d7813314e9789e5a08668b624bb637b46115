@@ -1,0 +1,23 @@
+doc/rados/configuration/common.rst
+  s_a327d8eee9a701::t_a795975051ae37 128-135
+doc/rados/configuration/osd-config-ref.rst
+  s_a327d8eee9a701::t_08eda27f46033c 29,43-44,46-47
+doc/rados/configuration/storage-devices.rst
+  s_a327d8eee9a701::t_9063a8ecfda7a2 33-38,74
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.2",
+  "base_commit_sha": "d133d7813314e9789e5a08668b624bb637b46115",
+  "prompts": {},
+  "sessions": {
+    "s_a327d8eee9a701": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "13915cfd-971e-4347-aa13-c4afe410899f",
+        "model": "claude-fable-5-1"
+      },
+      "human_author": "Ondřej Kukla <ondrej.kukla@cdn77.com>"
+    }
+  }
+}
