@@ -1,0 +1,23 @@
+doc/rados/troubleshooting/log-and-debug.rst
+  s_a327d8eee9a701::t_ba2fd675261615 105-106
+doc/rados/troubleshooting/troubleshooting-osd.rst
+  s_a327d8eee9a701::t_fa2654fbadf27e 204,461-462,464-466,469-471,493
+doc/rados/troubleshooting/troubleshooting-pg.rst
+  s_a327d8eee9a701::t_971f059ff01bdb 603-606,608
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.2",
+  "base_commit_sha": "31d9aa5e61f2653827d7f2e2f32357a0b880eb32",
+  "prompts": {},
+  "sessions": {
+    "s_a327d8eee9a701": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "13915cfd-971e-4347-aa13-c4afe410899f",
+        "model": "claude-fable-5-1"
+      },
+      "human_author": "Ondřej Kukla <ondrej.kukla@cdn77.com>"
+    }
+  }
+}
