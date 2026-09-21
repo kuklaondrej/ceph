@@ -1,0 +1,27 @@
+doc/rados/configuration/osd-config-ref.rst
+  s_a327d8eee9a701::t_aa400689c6dc1f 43,46
+doc/rados/configuration/storage-devices.rst
+  s_a327d8eee9a701::t_ea14cfa502f11c 33-41
+doc/rados/operations/add-or-rm-osds.rst
+  s_a327d8eee9a701::t_bb3997c70abcb1 184-186
+doc/rados/operations/bluestore-migration.rst
+  s_a327d8eee9a701::t_847c6ba57935cc 7-9
+doc/rados/troubleshooting/troubleshooting-osd.rst
+  s_a327d8eee9a701::t_ef1130bc2c0a9f 468-471
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "801a7ea6fdbf72ec1aedea59c81231f22af6f0bc",
+  "prompts": {},
+  "sessions": {
+    "s_a327d8eee9a701": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "13915cfd-971e-4347-aa13-c4afe410899f",
+        "model": "claude-fable-5-1"
+      },
+      "human_author": "Ondřej Kukla <ondrej.kukla@cdn77.com>"
+    }
+  }
+}
