@@ -1,0 +1,22 @@
+doc/rados/configuration/storage-devices.rst
+  s_ca3c82aed7028b::t_c637816063124d 38-39
+  s_ca3c82aed7028b::t_b40521728105bd 40-41
+doc/rados/operations/bluestore-migration.rst
+  s_ca3c82aed7028b::t_c637816063124d 8
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "810b17b11f62d2f2c83341ac88f608b653f42780",
+  "prompts": {},
+  "sessions": {
+    "s_ca3c82aed7028b": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "1e5f4405-83d3-4231-b0a7-e47554c6bf7e",
+        "model": "claude-fable-5-1"
+      },
+      "human_author": "Ondřej Kukla <ondrej.kukla@cdn77.com>"
+    }
+  }
+}
